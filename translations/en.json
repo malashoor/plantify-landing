@@ -1,0 +1,67 @@
+{
+  "landing": {
+    "hero": {
+      "title": "Grow smarter, from seed to harvest.",
+      "subtitle": "AI-powered plant care assistant for modern gardeners"
+    },
+    "cta": {
+      "appStore": "Download on App Store",
+      "playStore": "Get it on Google Play"
+    },
+    "features": {
+      "title": "Smart Features for Better Growth",
+      "seed": {
+        "title": "Smart Seed-to-Harvest Guide",
+        "description": "Track your plant's journey with AI-powered insights"
+      },
+      "health": {
+        "title": "AI Health Detection",
+        "description": "Identify issues before they become problems"
+      },
+      "journal": {
+        "title": "Reminders & Journal",
+        "description": "Never miss a care task with smart notifications"
+      },
+      "admin": {
+        "title": "Admin Dashboard (Pro)",
+        "description": "Advanced analytics for serious growers"
+      },
+      "accessibility": {
+        "title": "Voice & Accessibility",
+        "description": "Inclusive design for all gardeners"
+      }
+    },
+    "screenshots": {
+      "title": "See Plantify in Action",
+      "home": {
+        "alt": "Plantify home screen showing plant dashboard",
+        "caption": "Smart Dashboard"
+      },
+      "scan": {
+        "alt": "Plant health scanning feature",
+        "caption": "AI Health Scanner"
+      },
+      "journal": {
+        "alt": "Plant care journal and reminders",
+        "caption": "Care Journal"
+      },
+      "analytics": {
+        "alt": "Growth analytics and insights",
+        "caption": "Growth Analytics"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Users Say",
+      "quote1": "Plantify has transformed how I care for my garden. The AI detection is incredible!",
+      "role1": "Urban Gardener",
+      "quote2": "The reminders and journal features keep me organized. Best gardening app ever!",
+      "role2": "Hydroponic Enthusiast"
+    },
+    "footer": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "contact": "Contact Us",
+      "copyright": "© 2025 Plantify. All rights reserved."
+    }
+  }
+} 
