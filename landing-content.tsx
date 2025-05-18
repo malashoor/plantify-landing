@@ -1,5 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform } from 'react-native-web';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView, 
+  Image, 
+  TouchableOpacity, 
+  Platform 
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThemeProvider, Button, Card } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -80,11 +88,15 @@ const LandingPage: React.FC = () => {
   const { t } = useTranslation();
 
   const handleAppStorePress = () => {
-    window.open(APP_STORE_URL, '_blank');
+    if (typeof window !== 'undefined') {
+      window.open(APP_STORE_URL, '_blank');
+    }
   };
 
   const handlePlayStorePress = () => {
-    window.open(PLAY_STORE_URL, '_blank');
+    if (typeof window !== 'undefined') {
+      window.open(PLAY_STORE_URL, '_blank');
+    }
   };
 
   return (
@@ -200,17 +212,17 @@ const LandingPage: React.FC = () => {
           <View style={styles.footer}>
             <View style={styles.footerContent}>
               <View style={styles.footerLinks}>
-                <TouchableOpacity onPress={() => {/* Handle privacy policy */}}>
+                <TouchableOpacity onPress={() => console.log('Privacy policy')}>
                   <Text style={styles.footerLink}>
                     {t('landing.footer.privacy', 'Privacy Policy')}
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {/* Handle terms */}}>
+                <TouchableOpacity onPress={() => console.log('Terms of use')}>
                   <Text style={styles.footerLink}>
                     {t('landing.footer.terms', 'Terms of Use')}
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {/* Handle contact */}}>
+                <TouchableOpacity onPress={() => console.log('Contact us')}>
                   <Text style={styles.footerLink}>
                     {t('landing.footer.contact', 'Contact Us')}
                   </Text>
