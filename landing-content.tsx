@@ -11,12 +11,8 @@ import {
   Image,
   TouchableOpacity,
   Platform,
-  openExternalLink,
-  asStyle,
-  type StyleProp,
-  type ViewStyle,
-  type ImageStyle
-} from './components/ui';
+  openExternalLink
+} from './components/ui-components';
 
 // Theme configuration
 const theme = {

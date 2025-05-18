@@ -1,58 +1,81 @@
 # Plantify Landing Page
 
-The official landing page for Plantify - AI-powered plant care assistant.
+A landing page for the Plantify app, built with pure HTML/CSS/JS for maximum performance and compatibility.
+
+## Features
+
+- Responsive design for all devices
+- App store links for iOS and Android
+- Feature overview with visual elements
+- Screenshot gallery for app preview
+- Early access waitlist signup form
+- reCAPTCHA integration
 
 ## Development
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/malashoor/plantify-landing.git
+cd plantify-landing
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start development server:
+3. Start the development server:
 ```bash
 npm start
 ```
 
-## Environment Variables
-
-Create a `.env` file in the root directory with the following variables:
-
-```env
-EXPO_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
-EXPO_PUBLIC_APP_STORE_URL=your_app_store_url
-EXPO_PUBLIC_PLAY_STORE_URL=your_play_store_url
+4. Build for production:
+```bash
+npm run build
 ```
 
-## Building for Production
+## Production Build
 
-1. Set up environment variables in your deployment platform (Netlify/Vercel)
+For a production build with environment variables:
 
-2. Build the project:
 ```bash
+APP_STORE_URL="https://apps.apple.com/app/plantify" \
+PLAY_STORE_URL="https://play.google.com/store/apps/details?id=com.plantify.app" \
+RECAPTCHA_SITE_KEY="your-recaptcha-site-key" \
 npm run build:prod
 ```
 
-The build output will be in the `dist` directory.
+## Netlify Deployment
 
-## Deployment
+1. Connect your GitHub repository to Netlify
+2. Set build command to: `npm run build:prod`
+3. Set publish directory to: `dist`
+4. Add environment variables:
+   - `APP_STORE_URL`: Your App Store URL
+   - `PLAY_STORE_URL`: Your Google Play Store URL
+   - `RECAPTCHA_SITE_KEY`: Your reCAPTCHA site key
 
-### Netlify
+## Environment Variables
 
-1. Connect your repository to Netlify
-2. Set the build command to: `npm run build:prod`
-3. Set the publish directory to: `dist`
-4. Add the following environment variables in Netlify:
-   - `EXPO_PUBLIC_RECAPTCHA_SITE_KEY`
-   - `EXPO_PUBLIC_APP_STORE_URL`
-   - `EXPO_PUBLIC_PLAY_STORE_URL`
+The following environment variables are used:
 
-### Vercel
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `APP_STORE_URL` | Apple App Store URL | https://apps.apple.com/app/plantify |
+| `PLAY_STORE_URL` | Google Play Store URL | https://play.google.com/store/apps/details?id=com.plantify.app |
+| `RECAPTCHA_SITE_KEY` | Google reCAPTCHA site key | 6LdKCD8rAAAAABGPhIMkfbArviupEohtWxp9FyLG |
 
-1. Connect your repository to Vercel
-2. Set the build command to: `npm run build:prod`
-3. Set the output directory to: `dist`
-4. Add the environment variables in Vercel's project settings
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Parcel (for bundling)
+- Node.js (for build scripts)
+
+## License
+
+© 2025 Plantify. All rights reserved.
 
 ## Screenshots
 

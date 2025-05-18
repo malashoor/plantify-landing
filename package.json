@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir dist",
-    "build:prod": "EXPO_PUBLIC_RECAPTCHA_SITE_KEY=$RECAPTCHA_SITE_KEY EXPO_PUBLIC_APP_STORE_URL=$APP_STORE_URL EXPO_PUBLIC_PLAY_STORE_URL=$PLAY_STORE_URL parcel build index.html --dist-dir dist",
+    "build": "parcel build index-simple.html --dist-dir dist --no-source-maps --public-url ./",
+    "build:prod": "cp index-simple.html index.html && node scripts/prepare-build.js && parcel build index.html --dist-dir dist --no-source-maps --public-url ./",
     "clean": "rm -rf dist .parcel-cache",
     "prebuild": "npm run clean"
   },
@@ -24,11 +24,17 @@
     "react-native-web": "^0.19.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-transform-react-jsx": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@parcel/optimizer-terser": "^2.15.1",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
     "@types/react-helmet": "^6.1.0",
     "@types/react-native": "^0.73.0",
-    "parcel": "^2.11.0",
+    "parcel": "^2.15.1",
     "typescript": "^5.0.0"
   },
   "resolutions": {
@@ -36,6 +42,11 @@
     "react-dom": "18.2.0"
   },
   "alias": {
-    "react-native": "react-native-web"
+    "react-native": "react-native-web",
+    "react-native/Libraries/Utilities/codegenNativeComponent": "react-native-web/dist/modules/codegenNativeComponent",
+    "react-native/Libraries/Components/View/ViewPropTypes": "react-native-web/dist/modules/ViewPropTypes",
+    "react-native/Libraries/EventEmitter/RCTDeviceEventEmitter": "react-native-web/dist/modules/RCTDeviceEventEmitter",
+    "react-native/Libraries/vendor/emitter/EventEmitter": "react-native-web/dist/vendor/react-native/emitter/EventEmitter",
+    "react-native/Libraries/BatchedBridge/BatchedBridge": "react-native-web/dist/vendor/react-native/BatchedBridge/BatchedBridge"
   }
-} 
+}

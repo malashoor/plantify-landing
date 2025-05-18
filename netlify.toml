@@ -1,7 +1,6 @@
 [build]
   command = "npm run build:prod"
   publish = "dist"
-  base = "landing"
 
 [build.environment]
   NODE_VERSION = "18"
