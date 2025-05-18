@@ -1,17 +1,22 @@
 import React from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  ScrollView, 
-  Image, 
-  TouchableOpacity, 
-  Platform 
-} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThemeProvider, Button, Card } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import EarlyAccessForm from './components/EarlyAccessForm';
+import { 
+  View, 
+  Text, 
+  StyleSheet,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Platform,
+  openExternalLink,
+  asStyle,
+  type StyleProp,
+  type ViewStyle,
+  type ImageStyle
+} from './components/ui';
 
 // Theme configuration
 const theme = {
@@ -34,7 +39,7 @@ interface FeatureCardProps {
 
 // Feature Card Component
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
-  <Card containerStyle={styles.featureCard}>
+  <Card containerStyle={asStyle<ViewStyle>(styles.featureCard)}>
     <View style={styles.featureIcon}>
       <Text style={styles.iconText}>{icon}</Text>
     </View>
@@ -51,7 +56,7 @@ interface TestimonialCardProps {
 
 // Testimonial Card Component
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, author, role }) => (
-  <Card containerStyle={styles.testimonialCard}>
+  <Card containerStyle={asStyle<ViewStyle>(styles.testimonialCard)}>
     <Text style={styles.quote}>{quote}</Text>
     <View style={styles.testimonialAuthor}>
       <Text style={styles.authorName}>{author}</Text>
@@ -63,6 +68,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, author, role }
 // App Store URLs
 const APP_STORE_URL = process.env.EXPO_PUBLIC_APP_STORE_URL || 'https://apps.apple.com/app/plantify';
 const PLAY_STORE_URL = process.env.EXPO_PUBLIC_PLAY_STORE_URL || 'https://play.google.com/store/apps/details?id=com.plantify.app';
+const RECAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_RECAPTCHA_SITE_KEY || '6LdKCD8rAAAAABGPhIMkfbArviupEohtWxp9FyLG';
 
 // Screenshot Component
 interface ScreenshotProps {
@@ -75,9 +81,8 @@ const Screenshot: React.FC<ScreenshotProps> = ({ src, alt, caption }) => (
   <View style={styles.screenshotContainer}>
     <Image
       source={{ uri: src }}
-      style={styles.screenshot}
+      style={asStyle<ImageStyle>(styles.screenshot)}
       accessibilityLabel={alt}
-      accessibilityRole="image"
     />
     <Text style={styles.screenshotCaption}>{caption}</Text>
   </View>
@@ -88,15 +93,11 @@ const LandingPage: React.FC = () => {
   const { t } = useTranslation();
 
   const handleAppStorePress = () => {
-    if (typeof window !== 'undefined') {
-      window.open(APP_STORE_URL, '_blank');
-    }
+    openExternalLink(APP_STORE_URL);
   };
 
   const handlePlayStorePress = () => {
-    if (typeof window !== 'undefined') {
-      window.open(PLAY_STORE_URL, '_blank');
-    }
+    openExternalLink(PLAY_STORE_URL);
   };
 
   return (
@@ -114,12 +115,12 @@ const LandingPage: React.FC = () => {
             <View style={styles.ctaButtons}>
               <Button
                 title={t('landing.cta.appStore', 'Download on App Store')}
-                containerStyle={styles.storeButton}
+                containerStyle={asStyle<ViewStyle>(styles.storeButton)}
                 onPress={handleAppStorePress}
               />
               <Button
                 title={t('landing.cta.playStore', 'Get it on Google Play')}
-                containerStyle={styles.storeButton}
+                containerStyle={asStyle<ViewStyle>(styles.storeButton)}
                 onPress={handlePlayStorePress}
               />
             </View>
@@ -231,12 +232,12 @@ const LandingPage: React.FC = () => {
               <View style={styles.storeButtons}>
                 <Button
                   title={t('landing.cta.appStore', 'Download on App Store')}
-                  containerStyle={styles.footerStoreButton}
+                  containerStyle={asStyle<ViewStyle>(styles.footerStoreButton)}
                   onPress={handleAppStorePress}
                 />
                 <Button
                   title={t('landing.cta.playStore', 'Get it on Google Play')}
-                  containerStyle={styles.footerStoreButton}
+                  containerStyle={asStyle<ViewStyle>(styles.footerStoreButton)}
                   onPress={handlePlayStorePress}
                 />
               </View>

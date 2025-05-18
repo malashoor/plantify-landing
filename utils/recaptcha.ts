@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Platform } from '../components/ui';
 
 declare global {
   interface Window {
@@ -15,7 +15,8 @@ declare global {
   }
 }
 
-const RECAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_RECAPTCHA_SITE_KEY || '';
+// Use the site key provided or fall back to env var
+const RECAPTCHA_SITE_KEY = process.env.EXPO_PUBLIC_RECAPTCHA_SITE_KEY || '6LdKCD8rAAAAABGPhIMkfbArviupEohtWxp9FyLG';
 
 export const loadReCaptchaScript = (): Promise<void> => {
   if (Platform.OS !== 'web') return Promise.resolve();
